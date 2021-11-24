@@ -85,5 +85,23 @@ namespace DataLayer
 
             return null;
         }
+
+        public User TryLogin(string username, string password)
+        {
+            using var ctx = new FoodRescDbContext();
+
+            var query = ctx.Users
+                .Where(c => c.UserPrivateInfo.Username==username && c.UserPrivateInfo.Password == password);
+
+            var findCustomer = query.First();
+            var exist = query.Any();
+
+            if (exist)
+            {
+                return findCustomer;
+            }
+
+            return null;
+        }
     }
 }
