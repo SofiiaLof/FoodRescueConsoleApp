@@ -31,6 +31,26 @@ namespace DataLayer
             return null;
         }
 
+        //En metod för att få en lista över alla sålda matlådor för ett restaurang objekt
+        public List<FoodPackage> GetUnSoldPackagesForRestaurant(Restaurant restaurant)
+        {
+            using var ctx = new FoodRescDbContext();
+
+            var query = ctx.FoodPackages
+                .Include(f => f.Restaurant)
+                .Where(f => f.Sale.FoodPackage == null && f.Restaurant == restaurant);
+
+            var soldFoodPackages = query.ToList();
+            var exist = query.Any();
+
+            if (exist)
+            {
+                return soldFoodPackages;
+            }
+
+            return null;
+        }
+
         //En metod för att lägga till ett nytt matlådeobjekt för en restaurang
         public FoodPackage AddNewFoodPackage(Restaurant restaurant, string mealname, double price, string foodcategory)
         {
