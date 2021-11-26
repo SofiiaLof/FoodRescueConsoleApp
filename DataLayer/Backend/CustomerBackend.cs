@@ -33,15 +33,20 @@ namespace DataLayer
 
         //En metod för att köpa ett givet lunchlåde objekt
 
-        public FoodPackage TryToBuyFoodPackage(string mealName, User user)
+        public FoodPackage TryToBuyFoodPackage(int mealId, User user)
         {
             using var ctx = new FoodRescDbContext();
 
             var query = ctx.FoodPackages
-                .Where(f => f.MealName == mealName && f.Sale.FoodPackage == null);
+                .Where(f => f.FoodPackageId== mealId && f.Sale.FoodPackage == null);
+
+            var userquery = ctx.Users
+                .Where(u => u.UserId == user.UserId);
 
             var foodPackage = query.FirstOrDefault();
             var unsold = query.Any();
+
+             var chosenUser = userquery.First();
 
             if (unsold)
             {
@@ -49,13 +54,12 @@ namespace DataLayer
                 {
 
                     FoodPackage = foodPackage,
-                    User = user,
+                    User = chosenUser,
                     PurchaseDate = DateTime.Now
 
                 };
 
                 ctx.Add(soldFoodPackage);
-                ctx.Update(user);
 
                 foodPackage.Unsold = user.UserId.ToString();
 
@@ -91,9 +95,11 @@ namespace DataLayer
             using var ctx = new FoodRescDbContext();
 
             var query = ctx.Users
-                .Where(c => c.UserPrivateInfo.Username==username && c.UserPrivateInfo.Password == password);
+                .Where(c => c.UserPrivateInfo.Username == username && c.UserPrivateInfo.Password == password)
+                .Include(i => i.UserPrivateInfo);
 
-            var findCustomer = query.First();
+            var findCustomer = query.FirstOrDefault();
+
             var exist = query.Any();
 
             if (exist)
