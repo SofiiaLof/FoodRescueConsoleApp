@@ -27,7 +27,6 @@ namespace CustomerClient
                 {
                     MainProgram(user);
 
-
                 }
                 else
                 {
@@ -51,7 +50,6 @@ namespace CustomerClient
                 Console.WriteLine("1. See list of all avaliable packages: ");
                 Console.WriteLine("2. See purchase history ");
                 Console.WriteLine("3. Exit ");
-
 
                 var optionKey = Console.ReadKey();
 
@@ -77,7 +75,6 @@ namespace CustomerClient
                     PurchaseHistory(user);
 
                 }
-
 
                 if (optionKey.Key == ConsoleKey.D3)
                 {
@@ -144,14 +141,8 @@ namespace CustomerClient
                 Console.WriteLine("Press enter and choose different category");
                 Console.ReadLine();
                 SeePackagesList();
-                
+
             }
-
-
-
-
-
-
         }
 
         static void PurchaseHistory(User user)
