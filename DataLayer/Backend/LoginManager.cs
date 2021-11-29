@@ -38,5 +38,11 @@ namespace DataLayer.Backend
                 return false; 
             }
         }
+
+        public string Roles(string Username, string Password)
+        {
+            // Finns inget sätt att se roller.
+            return "No Role";
+        }
     }
 }
