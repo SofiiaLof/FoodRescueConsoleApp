@@ -32,7 +32,7 @@ namespace DataLayer.Model
         [MaxLength(20)]
         public string CustomerAddress { get; set; }
 
-        [ForeignKey("CustomerId")]
+        [ForeignKey("UserId")]
         public User User { get; set; }
     }
 }

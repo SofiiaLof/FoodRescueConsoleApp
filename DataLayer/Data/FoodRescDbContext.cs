@@ -90,7 +90,15 @@ namespace DataLayer.Data
                 new() {MealName="Stekt ägg med bacon", PackagePrice = 50.0, FoodCategory = "Kött",MealType = "Frukost",Allergen = "Ägg",Unsold = null,PackagingDate = DateTime.Now ,ExpirationDate = DateTime.Today.AddDays(2),  Restaurant = restaurants[3] },
                 new() {MealName="Wokade grönsaker", PackagePrice =  53.0, FoodCategory = "Vego",MealType = "Lunch",Allergen = "Soja",Unsold = null,PackagingDate = DateTime.Now,ExpirationDate = DateTime.Today.AddDays(3),  Restaurant = restaurants[4] },
                 new() {MealName="Grönsallad", PackagePrice = 40.0, FoodCategory = "Vego",MealType = "Lunch",Allergen = "Nötter",Unsold = null,PackagingDate = DateTime.Now ,ExpirationDate = DateTime.Today.AddDays(1),  Restaurant = restaurants[5] },
-                new() {MealName="Nötbit med potatis", PackagePrice = 65.0, FoodCategory = "Kött",MealType = "Middag",Allergen = "Laktos",Unsold = null,PackagingDate = DateTime.Now ,ExpirationDate = DateTime.Today.AddDays(3),  Restaurant = restaurants[6] }
+                new() {MealName="Nötbit med potatis", PackagePrice = 65.0, FoodCategory = "Kött",MealType = "Middag",Allergen = "Laktos",Unsold = null,PackagingDate = DateTime.Now ,ExpirationDate = DateTime.Today.AddDays(3),  Restaurant = restaurants[6] },
+                new() {MealName="Smörgås", PackagePrice = 30.0, FoodCategory = "Kött",MealType = "Frukost",Allergen = "Gluten",Unsold = null,PackagingDate = DateTime.Now, ExpirationDate = DateTime.Today.AddDays(3), Restaurant = restaurants[0]},
+                new() {MealName="Big Mac", PackagePrice = 45.0, FoodCategory = "Kött", MealType = "Middag", Allergen = "Gluten",Unsold = null,PackagingDate = DateTime.Now ,ExpirationDate = DateTime.Today.AddDays(2),  Restaurant = restaurants[1]},
+                new() {MealName="Tonfiskbowl", PackagePrice = 50.0, FoodCategory = "Fisk",MealType = "Lunch",Allergen = "Fisk",Unsold = null,PackagingDate = DateTime.Now ,ExpirationDate = DateTime.Today.AddDays(1),  Restaurant = restaurants[2]},
+                new() {MealName="Pizza Hawaii", PackagePrice = 65.0, FoodCategory = "Kött",MealType = "Middag",Allergen = "Laktos",Unsold = null,PackagingDate = DateTime.Now,ExpirationDate = DateTime.Today.AddDays(1),  Restaurant = restaurants[3]},
+                new() {MealName="Wonton Soppa", PackagePrice = 50.0, FoodCategory = "Vego",MealType = "Lunch",Allergen = "Soja",Unsold = null,PackagingDate = DateTime.Now ,ExpirationDate = DateTime.Today.AddDays(2),  Restaurant = restaurants[4]},
+                new() {MealName="Fried Rice", PackagePrice =  53.0, FoodCategory = "Vego",MealType = "Middag",Allergen = "Soja",Unsold = null,PackagingDate = DateTime.Now,ExpirationDate = DateTime.Today.AddDays(3),  Restaurant = restaurants[5]},
+                new() {MealName="Ceasar Sallad", PackagePrice = 40.0, FoodCategory = "Vego",MealType = "Lunch",Allergen = "Ägg",Unsold = null,PackagingDate = DateTime.Now ,ExpirationDate = DateTime.Today.AddDays(1),  Restaurant = restaurants[6]},
+                new() {MealName="Chicken Nuggets", PackagePrice = 50.0, FoodCategory = "Kött",MealType = "Middag",Allergen = "Ägg",Unsold = null,PackagingDate = DateTime.Now ,ExpirationDate = DateTime.Today.AddDays(3),  Restaurant = restaurants[1]}
             };
                 AddRange(foodPackages);
 
@@ -100,7 +108,11 @@ namespace DataLayer.Data
                 new() {PurchaseDate = DateTime.Today,FoodPackage = foodPackages[2],User = users[0]},
                 new() {PurchaseDate = DateTime.Today, FoodPackage = foodPackages[3],User = users[0]},
                 new() {PurchaseDate = new DateTime(2021,10,1), FoodPackage = foodPackages[0],User = users[3]},
-                new() {PurchaseDate = new DateTime(2021,10,12),FoodPackage = foodPackages[1],User = users[4]}
+                new() {PurchaseDate = new DateTime(2021,10,12),FoodPackage = foodPackages[1],User = users[4]},
+                new() {PurchaseDate = DateTime.Today,FoodPackage = foodPackages[4],User = users[0]},
+                new() {PurchaseDate = DateTime.Today, FoodPackage = foodPackages[5],User = users[0]},
+                new() {PurchaseDate = new DateTime(2021,10,1), FoodPackage = foodPackages[6],User = users[3]},
+                new() {PurchaseDate = new DateTime(2021,10,12),FoodPackage = foodPackages[7],User = users[4]}
 
             };
                 AddRange(sales);
