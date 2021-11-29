@@ -4,7 +4,7 @@ using DataLayer.Data;
 
 namespace DataLayer.Backend
 {
-    internal class LoginManager
+    public class LoginManager
     {
         public User? Login(string Username, string Password)
         {
