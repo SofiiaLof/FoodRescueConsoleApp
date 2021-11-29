@@ -32,6 +32,7 @@ namespace DataLayer.Backend
             if (query != null)
             {
                 query.UserPrivateInfo.Password = NewPassword;
+                ctx.SaveChanges();
                 return true;
             } else { 
                 return false; 
