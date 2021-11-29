@@ -27,7 +27,6 @@ namespace CustomerClient
                 {
                     MainProgram(user);
 
-
                 }
                 else
                 {
@@ -52,7 +51,6 @@ namespace CustomerClient
                 Console.WriteLine("2. See purchase history ");
                 Console.WriteLine("3. Exit ");
 
-
                 var optionKey = Console.ReadKey();
 
                 if (optionKey.Key == ConsoleKey.D1)
@@ -67,6 +65,7 @@ namespace CustomerClient
                     else
                     {
                         Console.WriteLine("OK, next time then");
+                        Console.WriteLine("Press enter to go to main menu");
                     }
 
                 }
@@ -74,9 +73,8 @@ namespace CustomerClient
                 if (optionKey.Key == ConsoleKey.D2)
                 {
                     PurchaseHistory(user);
-                   
-                }
 
+                }
 
                 if (optionKey.Key == ConsoleKey.D3)
                 {
@@ -130,14 +128,21 @@ namespace CustomerClient
 
                 foreach (var item in foodPackages)
                 {
-                    Console.WriteLine(item.FoodPackageId + ". " + "Meal name: " + item.MealName + "; " +
+                    Console.WriteLine("Package number:" + item.FoodPackageId + ". " + "Meal name: " + item.MealName + "; " +
                                       " Price: " + item.PackagePrice + "; " +
                                       " Category: " + item.FoodCategory + ";");
                 }
-               
-            }
-            
 
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine("No avaliable packages av category " + category);
+                Console.WriteLine("Press enter and choose different category");
+                Console.ReadLine();
+                SeePackagesList();
+
+            }
         }
 
         static void PurchaseHistory(User user)
