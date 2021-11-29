@@ -24,9 +24,9 @@ public class Program
 
             Restaurant restaurant = null;
 
-            Console.WriteLine("\n*** Welcome to Food Rescue***\n" +
-                              "\n-----------------------------\n" +
-                              "\nPlease enter your restaurant");
+            Console.WriteLine("\n*** Welcome to Food Rescue ***\n" +
+                              "\n------------------------------\n" +
+                              "\nPlease enter your restaurant:");
 
             var restaurantname = Console.ReadLine();
 
@@ -38,7 +38,7 @@ public class Program
             }
             else
             {
-                Console.WriteLine("Something went wrong. Pleas try to login again!");
+                Console.WriteLine("Something went wrong. Please try to enter your restaurant name again!");
                 Console.ReadLine();
             }
         }
@@ -47,42 +47,37 @@ public class Program
         {
             while (true)
             {
-                Console.WriteLine("Pick an option: " +
-                                  "\n1: Sold FoodPackages " +
-                                  "\n2: Unsold FoodPackages" +
-                                  "\n3: Add FoodPackage" +
-                                  "\n4: Press Escape to Exit" +
-                                  "\n5: Reset Database");
+                Console.WriteLine("\nPick an option: " +
+                                  "\n\n1: See Your Sold FoodPackages " +
+                                  "\n\n2: See Your Unsold FoodPackages" +
+                                  "\n\n3: Add a FoodPackage" +
+                                  "\n\n4: Press Escape to Exit");
 
-                var keyInfo = Console.ReadKey();
+                var option = Console.ReadKey();
 
                 Console.Clear();
 
-                if (keyInfo.Key == ConsoleKey.D1)
+                if (option.Key == ConsoleKey.D1)
                 {
-                    SeeSoldFoodPackages();
+                    SeeSoldFoodPackages(restaurant);
+                    Console.WriteLine("\nPress enter to return to menu");
                 }
 
-                if (keyInfo.Key == ConsoleKey.D2)
+                if (option.Key == ConsoleKey.D2)
                 {
-                    SeeUnsoldFoodPackages();
+                    SeeUnsoldFoodPackages(restaurant);
+                    Console.WriteLine("\nPress enter to return to menu");
                 }
 
-                if (keyInfo.Key == ConsoleKey.D3)
+                if (option.Key == ConsoleKey.D3)
                 {
                     AddNewFoodPackage(restaurant);
+                    Console.WriteLine("\nPress enter to return to menu");
                 }
 
-                if (keyInfo.Key == ConsoleKey.Escape)
+                if (option.Key == ConsoleKey.Escape)
                 {
                     break;
-                }
-
-                if (keyInfo.Key == ConsoleKey.D5)
-                {
-                    AdminBackend.PrepareDatabase();
-                    Console.WriteLine("Database initialized!");
-                    Console.WriteLine("Press enter to return to menu");
                 }
 
                 Console.ReadLine();
@@ -91,13 +86,11 @@ public class Program
         
     }
 
-    static void SeeSoldFoodPackages()
+    static void SeeSoldFoodPackages(Restaurant restaurant)
     {
         RestaurantBackend RestaurantBack = new RestaurantBackend();
 
-        Restaurant restaurant_ = RestaurantBack.FindRestaurant("Espresso House");
-
-        var soldFoodPackages = RestaurantBack.GetSoldPackagesForRestaurant(restaurant_);
+        var soldFoodPackages = RestaurantBack.GetSoldPackagesForRestaurant(restaurant);
 
         if (soldFoodPackages != null)
         {
@@ -113,15 +106,13 @@ public class Program
         }
     }
 
-    static void SeeUnsoldFoodPackages()
+    static void SeeUnsoldFoodPackages(Restaurant restaurant)
     {
         RestaurantBackend RestaurantBackend = new RestaurantBackend();
 
-        Restaurant restaurant_ = RestaurantBackend.FindRestaurant("Espresso House");
+        var soldFoodPackages = RestaurantBackend.GetUnSoldPackagesForRestaurant(restaurant);
 
-        var soldFoodPackages = RestaurantBackend.GetSoldPackagesForRestaurant(restaurant_);
-
-        if (soldFoodPackages == null)
+        if (soldFoodPackages != null)
         {
             foreach (var item in soldFoodPackages)
             {
@@ -135,20 +126,36 @@ public class Program
         }
     }
 
-    static void AddNewFoodPackage(Restaurant name)
+    static void AddNewFoodPackage(Restaurant restaurant)
     {
         RestaurantBackend RestaurantBackend = new RestaurantBackend();
 
-        Restaurant restaurant = RestaurantBackend.FindRestaurant("Poke Bowl");
+        Console.WriteLine("Please enter a mealname");
+        string mealname = Console.ReadLine();
 
-        var newFoodPackage = RestaurantBackend.AddNewFoodPackage(restaurant, "Vårrullar", 25.0, "Vego");
+        Console.WriteLine("Please enter a mealtype");
+        string mealtype = Console.ReadLine();
+
+        Console.WriteLine("Please enter a price");
+        int price = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Please enter a foodcategory");
+        string foodcategory = Console.ReadLine();
+
+        Console.WriteLine("Please enter an allergen");
+        string allergen = Console.ReadLine();
+
+        var newFoodPackage = RestaurantBackend.AddNewFoodPackage(restaurant, mealname, price, foodcategory, allergen, mealtype);
 
         if (newFoodPackage != null)
         {
             Console.WriteLine("New package is added to restaurant: " + newFoodPackage.Restaurant.RestaurantName);
-            Console.WriteLine("Meal name: " + newFoodPackage.MealName + "; " +
-                              "Price: " + newFoodPackage.PackagePrice + "kr" + ";" +
-                              "Expiration date: " + newFoodPackage.ExpirationDate + ";");
+            Console.WriteLine("\nMeal Name: " + newFoodPackage.MealName +
+                              "\nMeal Type: " + newFoodPackage.MealType +
+                              "\nAllergen: " + newFoodPackage.Allergen +
+                              "\nFoodcategory: " + newFoodPackage.FoodCategory +
+                              "\nPrice: " + newFoodPackage.PackagePrice + " kr" +
+                              "\nExpiration date: " + newFoodPackage.ExpirationDate);
 
             Console.WriteLine();
         }
