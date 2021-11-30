@@ -167,6 +167,11 @@ namespace CustomerClient
                 }
                 Console.WriteLine("\n"+ "Press enter to go to main menu");
             }
+            else
+            {
+                Console.WriteLine("Sorry, your purchase history is empty");
+                Console.WriteLine("Press enter to go to main menu");
+            }
 
         }
     }
