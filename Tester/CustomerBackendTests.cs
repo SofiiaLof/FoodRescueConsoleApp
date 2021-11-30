@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DataLayer;
 using DataLayer.Data;
+using NuGet.Frameworks;
 using Xunit;
 
 namespace Tester
@@ -30,6 +31,7 @@ namespace Tester
 
             var unsoldPackages = customerBackend.CheckUnsoldPackages(foodCategory);
 
+            Assert.NotNull(unsoldPackages);
 
             foreach (var item in unsoldPackages)
             {
@@ -41,6 +43,23 @@ namespace Tester
         }
 
 
+        [Fact]
+        public void TryToBuyFoodPackage_Test()
+        {
+            using var ctx = new FoodRescDbContext();
+            AdminBackend.PrepareDatabase();
+
+            CustomerBackend customerBackend= new CustomerBackend();
+
+            int  mealId = 9;
+            var user = customerBackend.TryLogin("anna23", "password1");
+
+            var foodPackageToBuy = customerBackend.TryToBuyFoodPackage(mealId, user);
+
+            Assert.NotNull(foodPackageToBuy);
+            Assert.Equal(mealId, foodPackageToBuy.FoodPackageId);
+        }
 
     }
+
 }
