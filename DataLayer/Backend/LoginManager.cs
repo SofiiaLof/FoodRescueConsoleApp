@@ -51,9 +51,7 @@ namespace DataLayer.Backend
                 .Where(v => v.User.UserId == query.UserId)
                 .FirstOrDefault();
 
-            var res = RestaurantQuery != null;
-            
-            return res;
+            return (RestaurantQuery != null);
         }
     }
 }
