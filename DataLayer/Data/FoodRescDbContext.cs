@@ -90,13 +90,13 @@ namespace DataLayer.Data
 
                 var restaurants = new List<Restaurant>
             {
-                new() {RestaurantName="Espresso House", RestaurantAddress="Drottningatan 2", PhoneNumber="0702178456", EmailAddress="espressoh@email.com", User = users[0]},
-                new() {RestaurantName="McDonalds", RestaurantAddress="Glasbruksgatan 34", PhoneNumber="0724177571", EmailAddress="mcdonalds@email.com", User = users[1]},
-                new() {RestaurantName="Poke Bowl", RestaurantAddress="Havregatan 31", PhoneNumber="0712678025", EmailAddress="poke@email.com", User = users[2]},
-                new() {RestaurantName="Altans Pizzeria", RestaurantAddress="Munkforsgatan 45", PhoneNumber="0703479444", EmailAddress="'pizzeria@email.com", User = users[3]},
-                new() {RestaurantName="Chop Chop Asian Express", RestaurantAddress="Farstagatan 89", PhoneNumber="0706713459", EmailAddress="chopchop@email.com", User = users[4]},
-                new() {RestaurantName="Maximus restaurant", RestaurantAddress="Hjärnegatan 67", PhoneNumber=" 0705671258", EmailAddress="max@email.com", User = users[5]},
-                new() {RestaurantName="Appetito", RestaurantAddress="Kolargatan 45", PhoneNumber="0701179459", EmailAddress="appetito@email.com", User = users[6]},
+                new() {RestaurantName="Espresso House", RestaurantAddress="Drottningatan 2", PhoneNumber="0702178456", EmailAddress="espressoh@email.com", User= users[7]},
+                new() {RestaurantName="McDonalds", RestaurantAddress="Glasbruksgatan 34", PhoneNumber="0724177571", EmailAddress="mcdonalds@email.com", User= users[8]},
+                new() {RestaurantName="Poke Bowl", RestaurantAddress="Havregatan 31", PhoneNumber="0712678025", EmailAddress="poke@email.com", User= users[9]},
+                new() {RestaurantName="Altans Pizzeria", RestaurantAddress="Munkforsgatan 45", PhoneNumber="0703479444", EmailAddress="'pizzeria@email.com", User= users[10]},
+                new() {RestaurantName="Chop Chop Asian Express", RestaurantAddress="Farstagatan 89", PhoneNumber="0706713459", EmailAddress="chopchop@email.com", User= users[11]},
+                new() {RestaurantName="Maximus restaurant", RestaurantAddress="Hjärnegatan 67", PhoneNumber=" 0705671258", EmailAddress="max@email.com", User= users[12]},
+                new() {RestaurantName="Appetito", RestaurantAddress="Kolargatan 45", PhoneNumber="0701179459", EmailAddress="appetito@email.com", User= users[13]},
             };
                 AddRange(restaurants);
 
