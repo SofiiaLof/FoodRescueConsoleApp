@@ -31,5 +31,26 @@ namespace Tester
             Assert.Equal(2, soldFoodPackages.Count());
         }
 
+        [Fact]
+        public void GetUnSoldPackagesForRestaurant_Test()
+        {
+            using var ctx = new FoodRescDbContext();
+
+            AdminBackend.PrepareDatabase();
+
+            var restaurantBackend = new RestaurantBackend();
+
+            var restaurant = restaurantBackend.FindRestaurant("Altans Pizzeria");
+
+            var query = ctx.FoodPackages
+                .Include(f => f.Restaurant)
+                .Where(f => f.Sale.FoodPackage == null && f.Restaurant == restaurant);
+
+            var unsoldFoodPackages = query.ToList();
+
+            var unsoldFood = restaurantBackend.GetUnSoldPackagesForRestaurant(restaurant);
+
+            Assert.Equal(1, unsoldFoodPackages.Count());
+        }
     }
 }
