@@ -40,12 +40,12 @@ namespace DataLayer
                 .Include(f => f.Restaurant)
                 .Where(f => f.Sale.FoodPackage == null && f.Restaurant == restaurant);
 
-            var soldFoodPackages = query.ToList();
+            var unsoldFoodPackages = query.ToList();
             var exist = query.Any();
 
             if (exist)
             {
-                return soldFoodPackages;
+                return unsoldFoodPackages;
             }
 
             return null;

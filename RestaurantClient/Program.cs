@@ -110,11 +110,11 @@ public class Program
     {
         RestaurantBackend RestaurantBackend = new RestaurantBackend();
 
-        var soldFoodPackages = RestaurantBackend.GetUnSoldPackagesForRestaurant(restaurant);
+        var unsoldFoodPackages = RestaurantBackend.GetUnSoldPackagesForRestaurant(restaurant);
 
-        if (soldFoodPackages != null)
+        if (unsoldFoodPackages != null)
         {
-            foreach (var item in soldFoodPackages)
+            foreach (var item in unsoldFoodPackages)
             {
                 Console.WriteLine("Restaurant name: " +
                                   item.Restaurant.RestaurantName +
