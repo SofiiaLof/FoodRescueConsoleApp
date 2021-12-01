@@ -39,10 +39,21 @@ namespace DataLayer.Backend
             }
         }
 
-        public string Roles(string Username, string Password)
+        public bool Waitress(string Username, string Password)
         {
-            // Finns inget sätt att se roller.
-            return "No Role";
+            using var ctx = new FoodRescDbContext();
+
+            var query = ctx.Users
+                .Where(c => c.UserPrivateInfo.Username == Username && c.UserPrivateInfo.Password == Password)
+                .FirstOrDefault();
+
+            var RestaurantQuery = ctx.Restaurants
+                .Where(v => v.User.UserId == query.UserId)
+                .FirstOrDefault();
+
+            var res = RestaurantQuery != null;
+            
+            return res;
         }
     }
 }
