@@ -29,5 +29,40 @@ namespace Tester
 
             Assert.True(getUser.EmailAddress == loginUser.EmailAddress);
         }
+
+        [Fact]
+        public void ChangePasswordTest()
+        {
+            AdminBackend.PrepareDatabase();
+            var ctx = new FoodRescDbContext();
+
+            LoginManager loginManager = new LoginManager();
+            
+            string prePassChange = loginManager.Login("anna23", "password1").UserPrivateInfo.Password;
+
+            loginManager.ChangePassword("anna23", "password1", "newPassword");
+
+            string postPassChange = loginManager.Login("anna23", "newPassword").UserPrivateInfo.Password;
+
+            Assert.True(postPassChange == "newPassword");
+        }
+
+        [Fact]
+        public void WaitressTest()
+        {
+            AdminBackend.PrepareDatabase();
+            var ctx = new FoodRescDbContext();
+
+            var loginManager = new LoginManager();
+
+            var RestaurantUser = loginManager.Login("anna23", "password1");
+            var restaurantInfo = loginManager.Waitress(RestaurantUser);
+
+            var targetRestaurant = ctx.Restaurants
+                .Where(h => h.User.UserPrivateInfo.Username == "anna23")
+                .FirstOrDefault();
+
+            Assert.True(restaurantInfo.RestaurantName == targetRestaurant.RestaurantName);
+        }
     }
 }
