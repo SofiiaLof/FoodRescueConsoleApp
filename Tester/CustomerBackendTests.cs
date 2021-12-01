@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataLayer;
+using DataLayer.Backend;
 using DataLayer.Data;
 using NuGet.Frameworks;
 using Xunit;
@@ -49,14 +50,16 @@ namespace Tester
             using var ctx = new FoodRescDbContext();
             AdminBackend.PrepareDatabase();
 
-            CustomerBackend customerBackend= new CustomerBackend();
+           var customerBackend= new CustomerBackend();
+           var loginManager = new LoginManager();
 
             int  mealId = 9;
-            var user = customerBackend.TryLogin("anna23", "password1");
+            var user = loginManager.Login("anna23", "password1");
 
             var foodPackageToBuy = customerBackend.TryToBuyFoodPackage(mealId, user);
 
             Assert.NotNull(foodPackageToBuy);
+
             Assert.Equal(mealId, foodPackageToBuy.FoodPackageId);
         }
 
