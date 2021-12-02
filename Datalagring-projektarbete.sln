@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantClient", "Restaur
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{0E19631D-A415-40FC-AC18-20667DE70B78}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Jeanette Rapport", "Jeanette Rapport", "{32B21410-4364-4B8C-AA9B-A1695964E8B2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rapport", "Rapport", "{32B21410-4364-4B8C-AA9B-A1695964E8B2}"
 	ProjectSection(SolutionItems) = preProject
 		[Jeanette_Ljungkvist].md = [Jeanette_Ljungkvist].md
 	EndProjectSection
