@@ -15,39 +15,44 @@ public class Program
         while (true)
         {
             Console.Clear();
+            // hugo12   password8
+            // elsa13   password9
+            // alma7    password10
+            // liam13   password11
+            // selma34  password12
+            // adam3    password13
+            // signe12  password7
+
+            Console.WriteLine("-------------------------------\n" +
+                              "\n*** Welcome to Food Rescue ***\n" +
+                              "\n-------------------------------");
+
             var loginManager = new LoginManager();
             User user = null;
 
-            Console.WriteLine("Welcome! ");
             Console.WriteLine("Enter your username: ");
             var username = Console.ReadLine();
 
-            Console.WriteLine("Enter your password: ");
+            Console.WriteLine("\nEnter your password: ");
             var password = Console.ReadLine();
 
             user = loginManager.Login(username, password);
-
-            // Altans Pizzeria
-            // Appetito
-            // Chop Chop Asian Express
-            // Espresso House
-            // Maximus restaurant
-            // McDonalds
-            // Poke Bowl
 
             var RestaurantBackend = new RestaurantBackend();
 
             Restaurant restaurant = null;
 
-            Console.WriteLine("\n*** Welcome to Food Rescue ***\n" +
-                              "\n------------------------------\n" +
-                              "\nPlease enter your restaurant:");
-
-            var restaurantname = Console.ReadLine();
-
-            restaurant = loginManager.Waitress(user);
-           
-            MainProgram(restaurant);
+            if (user != null)
+            {
+                restaurant = loginManager.Waitress(user);
+                MainProgram(restaurant);
+            }
+            else
+            {
+                Console.WriteLine("Something wrong, please try again");
+                Console.ReadLine();
+            }
+            
         }
 
         static void MainProgram(Restaurant restaurant)

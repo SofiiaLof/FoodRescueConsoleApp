@@ -56,6 +56,11 @@ namespace DataLayer
         {
             using var ctx = new FoodRescDbContext();
 
+            var query = ctx.Restaurants
+                .Where(r => r.RestaurantName == restaurant.RestaurantName &&
+                            r.RestaurantAddress == restaurant.RestaurantAddress)
+                .FirstOrDefault();
+
             if (restaurant != null)
             {
                 var newFoodPackage = new FoodPackage()
@@ -65,13 +70,13 @@ namespace DataLayer
                     FoodCategory = foodcategory,
                     PackagingDate = DateTime.Now,
                     ExpirationDate = DateTime.Today.AddDays(2),
-                    Restaurant = restaurant,
+                    Restaurant = query,
                     Allergen = allergen,
                     MealType = mealtype,
                 };
 
                 var foodPackageToAdd = ctx.FoodPackages.Add(newFoodPackage);
-                ctx.Update(restaurant);
+                //ctx.Update(restaurant);
                 ctx.SaveChanges();
 
                 return newFoodPackage;

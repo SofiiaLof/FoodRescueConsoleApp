@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using DataLayer;
+using DataLayer.Backend;
 using DataLayer.Data;
 using DataLayer.Model;
 using Microsoft.EntityFrameworkCore;
@@ -20,8 +21,12 @@ namespace Tester
 
             var restaurantBackend = new RestaurantBackend();
 
-            var restaurant = restaurantBackend.FindRestaurant("Espresso House");
-            
+            var loginManager = new LoginManager();
+
+            var user = loginManager.Login("hugo12", "password8");
+
+            var restaurant = loginManager.Waitress(user);
+
             var query = ctx.FoodPackages
                 .Include(f => f.Restaurant)
                 .Where(f => f.Sale.FoodPackage != null && f.Restaurant == restaurant);
@@ -43,7 +48,11 @@ namespace Tester
 
             var restaurantBackend = new RestaurantBackend();
 
-            var restaurant = restaurantBackend.FindRestaurant("Altans Pizzeria");
+            var loginManager = new LoginManager();
+
+            var user = loginManager.Login("elsa13", "password9");
+
+            var restaurant = loginManager.Waitress(user);
 
             var query = ctx.FoodPackages
                 .Include(f => f.Restaurant)
@@ -66,33 +75,22 @@ namespace Tester
 
             var restaurantBackend = new RestaurantBackend();
 
-            var restaurant = restaurantBackend.FindRestaurant("Appetito");
+            var loginManager = new LoginManager();
+
+            var user = loginManager.Login("selma34", "password12");
+
+            var restaurant = loginManager.Waitress(user);
+
             var mealname = "Pasta alla Vodka";
-            var price = 55;
+            var price = 55.0;
             var foodcategory = "Vego";
             var allergen = "Gluten";
             var mealtype = "Middag";
 
-            if (restaurant != null)
-            {
-                var newFoodPackage = new FoodPackage()
-                {
-                    MealName = mealname,
-                    PackagePrice = price,
-                    FoodCategory = foodcategory,
-                    PackagingDate = DateTime.Now,
-                    ExpirationDate = DateTime.Today.AddDays(2),
-                    Restaurant = restaurant,
-                    Allergen = allergen,
-                    MealType = mealtype,
-                };
-
-                var foodPackageToAdd = ctx.FoodPackages.Add(newFoodPackage);
-            }
-
             var addFoodPackage =
                 restaurantBackend.AddNewFoodPackage(restaurant, mealname, price, foodcategory, allergen, mealtype);
 
+            Assert.Equal("Pasta alla Vodka", addFoodPackage.MealName);
         }
     }
 }
