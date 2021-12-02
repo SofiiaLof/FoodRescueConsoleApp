@@ -27,6 +27,7 @@ namespace DataLayer.Backend
 
             var query = ctx.Users
                 .Where(c => c.UserPrivateInfo.Username == Username && c.UserPrivateInfo.Password == Password)
+                .Include(x => x.UserPrivateInfo)
                 .FirstOrDefault();
 
             if (query != null)
@@ -39,19 +40,20 @@ namespace DataLayer.Backend
             }
         }
 
-        public bool Waitress(string Username, string Password)
+        public Restaurant Waitress(User user)
         {
             using var ctx = new FoodRescDbContext();
 
             var query = ctx.Users
-                .Where(c => c.UserPrivateInfo.Username == Username && c.UserPrivateInfo.Password == Password)
+                .Where(c => c.UserPrivateInfo.Username == user.UserPrivateInfo.Username &&
+                            c.UserPrivateInfo.Password == user.UserPrivateInfo.Password)
                 .FirstOrDefault();
 
             var RestaurantQuery = ctx.Restaurants
                 .Where(v => v.User.UserId == query.UserId)
                 .FirstOrDefault();
 
-            return (RestaurantQuery != null);
+            return RestaurantQuery;
         }
     }
 }

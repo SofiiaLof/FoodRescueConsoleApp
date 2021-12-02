@@ -1,4 +1,4 @@
-﻿using DataLayer;
+using DataLayer;
 
 while (true)
 {
@@ -84,4 +84,4 @@ while (true)
     }
 
     Console.ReadLine();
-}
+
