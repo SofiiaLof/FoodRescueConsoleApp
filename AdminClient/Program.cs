@@ -91,6 +91,7 @@ while (true)
         string restaurantNumber = Console.ReadLine();
 
 
+
         var newRestaurant =
             adminBackend.AddNewRestaurant(restaurantName, restaurantAdress, restaurantEmail, restaurantNumber);
 
@@ -114,3 +115,6 @@ while (true)
 
     }
 }
+    Console.ReadLine();
+
+

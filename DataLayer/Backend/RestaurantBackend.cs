@@ -40,12 +40,12 @@ namespace DataLayer
                 .Include(f => f.Restaurant)
                 .Where(f => f.Sale.FoodPackage == null && f.Restaurant == restaurant);
 
-            var soldFoodPackages = query.ToList();
+            var unsoldFoodPackages = query.ToList();
             var exist = query.Any();
 
             if (exist)
             {
-                return soldFoodPackages;
+                return unsoldFoodPackages;
             }
 
             return null;
@@ -56,6 +56,11 @@ namespace DataLayer
         {
             using var ctx = new FoodRescDbContext();
 
+            var query = ctx.Restaurants
+                .Where(r => r.RestaurantName == restaurant.RestaurantName &&
+                            r.RestaurantAddress == restaurant.RestaurantAddress)
+                .FirstOrDefault();
+
             if (restaurant != null)
             {
                 var newFoodPackage = new FoodPackage()
@@ -65,35 +70,16 @@ namespace DataLayer
                     FoodCategory = foodcategory,
                     PackagingDate = DateTime.Now,
                     ExpirationDate = DateTime.Today.AddDays(2),
-                    Restaurant=restaurant,
+                    Restaurant = query,
                     Allergen = allergen,
                     MealType = mealtype,
-
                 };
 
                 var foodPackageToAdd = ctx.FoodPackages.Add(newFoodPackage);
-                ctx.Update(restaurant);
+                //ctx.Update(restaurant);
                 ctx.SaveChanges();
 
                 return newFoodPackage;
-            }
-
-            return null;
-        }
-
-        public Restaurant FindRestaurant(string name)
-        {
-            using var ctx = new FoodRescDbContext();
-
-            var query = ctx.Restaurants
-                .Where(r => r.RestaurantName == name);
-
-            var restaurant = query.FirstOrDefault();
-            var exist = query.Any();
-
-            if (exist)
-            {
-                return restaurant;
             }
 
             return null;

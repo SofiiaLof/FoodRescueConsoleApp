@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using DataLayer;
+using DataLayer.Backend;
 using DataLayer.Model;
 
 
@@ -7,47 +8,59 @@ public class Program
 {
     static void Main(string[] args)
     {
-        Console.ForegroundColor = ConsoleColor.White;
-        Console.BackgroundColor = ConsoleColor.DarkMagenta;
+        Console.ForegroundColor = ConsoleColor.Black;
+        Console.BackgroundColor = ConsoleColor.Gray;
         Console.Clear();
+        
         while (true)
         {
-            // Altans Pizzeria
-            // Appetito
-            // Chop Chop Asian Express
-            // Espresso House
-            // Maximus restaurant
-            // McDonalds
-            // Poke Bowl
+            Console.Clear();
+            // hugo12   password8
+            // elsa13   password9
+            // alma7    password10
+            // liam13   password11
+            // selma34  password12
+            // adam3    password13
+            // signe12  password7
+
+            Console.WriteLine("-------------------------------\n" +
+                              "\n*** Welcome to Food Rescue ***\n" +
+                              "\n-------------------------------");
+
+            var loginManager = new LoginManager();
+            User user = null;
+
+            Console.WriteLine("Enter your username: ");
+            var username = Console.ReadLine();
+
+            Console.WriteLine("\nEnter your password: ");
+            var password = Console.ReadLine();
+
+            user = loginManager.Login(username, password);
 
             var RestaurantBackend = new RestaurantBackend();
 
             Restaurant restaurant = null;
 
-            Console.WriteLine("\n*** Welcome to Food Rescue ***\n" +
-                              "\n------------------------------\n" +
-                              "\nPlease enter your restaurant:");
-
-            var restaurantname = Console.ReadLine();
-
-            restaurant = RestaurantBackend.FindRestaurant(restaurantname);
-            
-            if (restaurantname != null)
+            if (user != null)
             {
+                restaurant = loginManager.Waitress(user);
                 MainProgram(restaurant);
             }
             else
             {
-                Console.WriteLine("Something went wrong. Please try to enter your restaurant name again!");
+                Console.WriteLine("Something wrong, please try again");
                 Console.ReadLine();
             }
+            
         }
 
         static void MainProgram(Restaurant restaurant)
         {
             while (true)
             {
-                Console.WriteLine("\nPick an option: " +
+                Console.WriteLine("\nWelcome " + restaurant.RestaurantName + "!");
+                Console.WriteLine("\n\nPick an option: " +
                                   "\n\n1: See Your Sold FoodPackages " +
                                   "\n\n2: See Your Unsold FoodPackages" +
                                   "\n\n3: Add a FoodPackage" +
@@ -110,11 +123,11 @@ public class Program
     {
         RestaurantBackend RestaurantBackend = new RestaurantBackend();
 
-        var soldFoodPackages = RestaurantBackend.GetUnSoldPackagesForRestaurant(restaurant);
+        var unsoldFoodPackages = RestaurantBackend.GetUnSoldPackagesForRestaurant(restaurant);
 
-        if (soldFoodPackages != null)
+        if (unsoldFoodPackages != null)
         {
-            foreach (var item in soldFoodPackages)
+            foreach (var item in unsoldFoodPackages)
             {
                 Console.WriteLine("Restaurant name: " +
                                   item.Restaurant.RestaurantName +
