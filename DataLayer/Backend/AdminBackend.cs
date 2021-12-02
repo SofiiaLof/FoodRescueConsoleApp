@@ -57,7 +57,7 @@ namespace DataLayer
 
         //En metod för att kunna lägga till ett nytt restaurang objekt
         public Restaurant AddNewRestaurant(string name, string adress, string email, string phone)
-        {
+        { 
             using var ctx = new FoodRescDbContext();
 
             var newRestaurant = new Restaurant()
@@ -73,5 +73,6 @@ namespace DataLayer
 
             return newRestaurant;
         }
+        
     }
 }
