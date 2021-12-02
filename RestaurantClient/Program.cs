@@ -7,9 +7,10 @@ public class Program
 {
     static void Main(string[] args)
     {
-        Console.ForegroundColor = ConsoleColor.White;
-        Console.BackgroundColor = ConsoleColor.DarkMagenta;
+        Console.ForegroundColor = ConsoleColor.Black;
+        Console.BackgroundColor = ConsoleColor.Gray;
         Console.Clear();
+        
         while (true)
         {
             // Altans Pizzeria
