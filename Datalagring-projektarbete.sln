@@ -9,13 +9,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayer", "DataLayer\Data
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tester", "Tester\Tester.csproj", "{1C0DA47F-28B6-4111-A0E6-E76A8E9FBF8B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerClient", "CustomerClient\CustomerClient.csproj", "{EF66FDA7-017E-4216-88EE-9866F969664B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerClient", "CustomerClient\CustomerClient.csproj", "{EF66FDA7-017E-4216-88EE-9866F969664B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminClient", "AdminClient\AdminClient.csproj", "{30C16A25-8A9E-4D7F-AD20-29C831C5A8AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdminClient", "AdminClient\AdminClient.csproj", "{30C16A25-8A9E-4D7F-AD20-29C831C5A8AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantClient", "RestaurantClient\RestaurantClient.csproj", "{C67B6E1E-7F2E-4AFD-B031-F6AC2BDDF9FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantClient", "RestaurantClient\RestaurantClient.csproj", "{C67B6E1E-7F2E-4AFD-B031-F6AC2BDDF9FE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{0E19631D-A415-40FC-AC18-20667DE70B78}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Jeanette Rapport", "Jeanette Rapport", "{32B21410-4364-4B8C-AA9B-A1695964E8B2}"
+	ProjectSection(SolutionItems) = preProject
+		[Jeanette_Ljungkvist].md = [Jeanette_Ljungkvist].md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
