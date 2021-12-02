@@ -1,8 +1,10 @@
+using System;
 using System.Linq;
 using DataLayer;
 using DataLayer.Data;
 using DataLayer.Model;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.TestPlatform.PlatformAbstractions;
 using Xunit;
 
 namespace Tester
@@ -28,7 +30,8 @@ namespace Tester
 
             var soldFood = restaurantBackend.GetSoldPackagesForRestaurant(restaurant);
 
-            Assert.Equal(2, soldFoodPackages.Count());
+            Assert.NotNull(soldFood);
+            Assert.Equal(soldFood.Count, soldFoodPackages.Count);
         }
 
         [Fact]
@@ -50,7 +53,46 @@ namespace Tester
 
             var unsoldFood = restaurantBackend.GetUnSoldPackagesForRestaurant(restaurant);
 
-            Assert.Equal(1, unsoldFoodPackages.Count());
+            Assert.NotNull(unsoldFood);
+            Assert.Equal(unsoldFood.Count, unsoldFoodPackages.Count);
+        }
+
+        [Fact]
+        public void AddNewFoodPackage_Test()
+        {
+            using var ctx = new FoodRescDbContext();
+
+            AdminBackend.PrepareDatabase();
+
+            var restaurantBackend = new RestaurantBackend();
+
+            var restaurant = restaurantBackend.FindRestaurant("Appetito");
+            var mealname = "Pasta alla Vodka";
+            var price = 55;
+            var foodcategory = "Vego";
+            var allergen = "Gluten";
+            var mealtype = "Middag";
+
+            if (restaurant != null)
+            {
+                var newFoodPackage = new FoodPackage()
+                {
+                    MealName = mealname,
+                    PackagePrice = price,
+                    FoodCategory = foodcategory,
+                    PackagingDate = DateTime.Now,
+                    ExpirationDate = DateTime.Today.AddDays(2),
+                    Restaurant = restaurant,
+                    Allergen = allergen,
+                    MealType = mealtype,
+                };
+
+                var foodPackageToAdd = ctx.FoodPackages.Add(newFoodPackage);
+            }
+
+            var addFoodPackage =
+                restaurantBackend.AddNewFoodPackage(restaurant, mealname, price, foodcategory, allergen, mealtype);
+
         }
     }
 }

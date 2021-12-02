@@ -65,10 +65,9 @@ namespace DataLayer
                     FoodCategory = foodcategory,
                     PackagingDate = DateTime.Now,
                     ExpirationDate = DateTime.Today.AddDays(2),
-                    Restaurant=restaurant,
+                    Restaurant = restaurant,
                     Allergen = allergen,
                     MealType = mealtype,
-
                 };
 
                 var foodPackageToAdd = ctx.FoodPackages.Add(newFoodPackage);

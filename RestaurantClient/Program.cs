@@ -31,23 +31,17 @@ public class Program
             var restaurantname = Console.ReadLine();
 
             restaurant = RestaurantBackend.FindRestaurant(restaurantname);
+           
+            MainProgram(restaurant);
             
-            if (restaurantname != null)
-            {
-                MainProgram(restaurant);
-            }
-            else
-            {
-                Console.WriteLine("Something went wrong. Please try to enter your restaurant name again!");
-                Console.ReadLine();
-            }
         }
 
         static void MainProgram(Restaurant restaurant)
         {
             while (true)
             {
-                Console.WriteLine("\nPick an option: " +
+                Console.WriteLine("\nWelcome " + restaurant.RestaurantName + "!");
+                Console.WriteLine("\n\nPick an option: " +
                                   "\n\n1: See Your Sold FoodPackages " +
                                   "\n\n2: See Your Unsold FoodPackages" +
                                   "\n\n3: Add a FoodPackage" +
