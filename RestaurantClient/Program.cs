@@ -64,7 +64,7 @@ public class Program
                                   "\n\n1: See Your Sold FoodPackages " +
                                   "\n\n2: See Your Unsold FoodPackages" +
                                   "\n\n3: Add a FoodPackage" +
-                                  "\n\n4: Press Escape to Exit");
+                                  "\n\n4: Press Escape to Exit and Return to Login Page");
 
                 var option = Console.ReadKey();
 

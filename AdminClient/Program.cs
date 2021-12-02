@@ -20,8 +20,8 @@ while (true)
     if (options == "1")
     {
         AdminBackend.PrepareDatabase();
-        
-        Console.WriteLine("The database has been restored" + 
+
+        Console.WriteLine("The database has been restored" +
                           "\n\n Press enter to return to menu");
 
     }
@@ -39,7 +39,7 @@ while (true)
 
         foreach (var customer in customerlist)
         {
-          
+
 
             Console.WriteLine("Id" + " " + customer.UserId +
                               " " + "Name" + " " + customer.UserPrivateInfo.FirstName + " " +
@@ -56,7 +56,7 @@ while (true)
     if (options == "3")
     {
 
-     AdminBackend adminBackend = new AdminBackend();
+        AdminBackend adminBackend = new AdminBackend();
 
         var restaurantlist = adminBackend.CheckRegisteredRestaurants();
 
@@ -66,8 +66,9 @@ while (true)
         foreach (var restaurant in restaurantlist)
         {
             Console.WriteLine(" " + " " + restaurant.RestaurantName
-                + " " + restaurant.RestaurantAddress + "" + restaurant.PhoneNumber);
+                              + " " + restaurant.RestaurantAddress + "" + restaurant.PhoneNumber);
         }
+
         Console.WriteLine("\n\nPress enter to return to menu");
     }
 
@@ -84,4 +85,6 @@ while (true)
     }
 
     Console.ReadLine();
+
+}
 
