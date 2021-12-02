@@ -85,23 +85,5 @@ namespace DataLayer
             return null;
         }
 
-        public Restaurant FindRestaurant(string name)
-        {
-            using var ctx = new FoodRescDbContext();
-
-            var query = ctx.Restaurants
-                .Where(r => r.RestaurantName == name);
-
-            var restaurant = query.FirstOrDefault();
-            var exist = query.Any();
-
-            if (exist)
-            {
-                return restaurant;
-            }
-
-            return null;
-        }
-
     }
 }

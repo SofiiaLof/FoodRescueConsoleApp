@@ -50,7 +50,7 @@ namespace Tester
 
             var loginManager = new LoginManager();
 
-            var user = loginManager.Login("elsa13", "password9");
+            var user = loginManager.Login("adam3", "password13");
 
             var restaurant = loginManager.Waitress(user);
 
