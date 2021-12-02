@@ -9,6 +9,9 @@ namespace CustomerClient
 
         static void Main(string[] args)
         {
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = ConsoleColor.Gray;
+
             while (true)
             {
                 Console.Clear();
