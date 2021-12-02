@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using DataLayer;
+using DataLayer.Backend;
 using DataLayer.Model;
 
 
@@ -13,6 +14,19 @@ public class Program
         
         while (true)
         {
+            Console.Clear();
+            var loginManager = new LoginManager();
+            User user = null;
+
+            Console.WriteLine("Welcome! ");
+            Console.WriteLine("Enter your username: ");
+            var username = Console.ReadLine();
+
+            Console.WriteLine("Enter your password: ");
+            var password = Console.ReadLine();
+
+            user = loginManager.Login(username, password);
+
             // Altans Pizzeria
             // Appetito
             // Chop Chop Asian Express
