@@ -99,7 +99,7 @@ while (true)
             Console.WriteLine("Restaurant name: " + newRestaurant.RestaurantName +
                               "\nRestaurant adress: " + newRestaurant.RestaurantAddress +
                               "\nRestaurant email: " + newRestaurant.EmailAddress +
-                              "\nRestaurant phonenumber" + newRestaurant.PhoneNumber);
+                              "\nRestaurant phonenumber: " + newRestaurant.PhoneNumber);
 
 
             Console.WriteLine("\n\nPress enter to return to menu");

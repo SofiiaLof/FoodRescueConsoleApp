@@ -59,14 +59,17 @@ namespace DataLayer
         public Restaurant AddNewRestaurant(string name, string adress, string email, string phone)
         { 
             using var ctx = new FoodRescDbContext();
-
+            User user = new User() { RegisteredAt = new DateTime(2021, 11, 7) };
             var newRestaurant = new Restaurant()
             {
                 RestaurantName = name,
                 RestaurantAddress = adress,
                 EmailAddress = email,
-                PhoneNumber = phone
+                PhoneNumber = phone,
+                User = user
+
             };
+            
 
             var addNew = ctx.Restaurants.Add(newRestaurant);
             ctx.SaveChanges();
