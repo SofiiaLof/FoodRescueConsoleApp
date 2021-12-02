@@ -19,6 +19,8 @@ namespace DataLayer.Model
 
         public ICollection<Sale> Sales { get; set; }
 
+        public Restaurant Restaurant { get; set; }   
+
         public UserPrivateInfo UserPrivateInfo { get; set; }
     }
 }

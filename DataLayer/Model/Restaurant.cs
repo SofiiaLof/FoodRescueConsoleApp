@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,5 +21,10 @@ namespace DataLayer.Model
         public string EmailAddress { get; set; }
 
         public ICollection<FoodPackage> FoodPackages { get; set; }
+
+
+        [ForeignKey("UserId")]
+        public User User { get; set; }
+
     }
 }

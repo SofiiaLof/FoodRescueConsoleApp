@@ -1,4 +1,4 @@
-﻿using DataLayer;
+using DataLayer;
 
 while (true)
 {
