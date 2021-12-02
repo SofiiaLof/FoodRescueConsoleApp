@@ -45,10 +45,9 @@ public class Program
 
             var restaurantname = Console.ReadLine();
 
-            restaurant = RestaurantBackend.FindRestaurant(restaurantname);
+            restaurant = loginManager.Waitress(user);
            
             MainProgram(restaurant);
-            
         }
 
         static void MainProgram(Restaurant restaurant)
