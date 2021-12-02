@@ -1,4 +1,5 @@
 ﻿using DataLayer;
+using DataLayer.Backend;
 using DataLayer.Model;
 
 namespace CustomerClient
@@ -11,7 +12,7 @@ namespace CustomerClient
             while (true)
             {
                 Console.Clear();
-                var customerBackend = new CustomerBackend();
+                var loginManager = new LoginManager();
                 User user = null;
 
                 Console.WriteLine("Welcome! ");
@@ -21,7 +22,7 @@ namespace CustomerClient
                 Console.WriteLine("Enter your password: ");
                 var password = Console.ReadLine();
 
-                user = customerBackend.TryLogin(username, password);
+                user = loginManager.Login(username, password);
 
                 if (user != null)
                 {
@@ -166,6 +167,11 @@ namespace CustomerClient
 
                 }
                 Console.WriteLine("\n"+ "Press enter to go to main menu");
+            }
+            else
+            {
+                Console.WriteLine("Sorry, your purchase history is empty");
+                Console.WriteLine("Press enter to go to main menu");
             }
 
         }
