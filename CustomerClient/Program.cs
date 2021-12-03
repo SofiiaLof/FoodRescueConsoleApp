@@ -15,6 +15,7 @@ namespace CustomerClient
             while (true)
             {
                 Console.Clear();
+
                 var loginManager = new LoginManager();
                 User user = null;
 
@@ -60,8 +61,10 @@ namespace CustomerClient
                 if (optionKey.Key == ConsoleKey.D1)
                 {
                     SeePackagesList();
+
                     Console.WriteLine("Would you like to buy one? (Yes/No)");
                     var option = Console.ReadLine();
+
                     if (option == "yes")
                     {
                         BuyFoodPackage(user);
