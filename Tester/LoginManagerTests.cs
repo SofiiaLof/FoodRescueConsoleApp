@@ -55,11 +55,11 @@ namespace Tester
 
             var loginManager = new LoginManager();
 
-            var RestaurantUser = loginManager.Login("anna23", "password1");
+            var RestaurantUser = loginManager.Login("hugo12", "password8");
             var restaurantInfo = loginManager.Waitress(RestaurantUser);
 
             var targetRestaurant = ctx.Restaurants
-                .Where(h => h.User.UserPrivateInfo.Username == "anna23")
+                .Where(h => h.User.UserPrivateInfo.Username == "hugo12")
                 .FirstOrDefault();
 
             Assert.True(restaurantInfo.RestaurantName == targetRestaurant.RestaurantName);
