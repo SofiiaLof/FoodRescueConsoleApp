@@ -5,7 +5,7 @@ Vi försökte att börja med planeringen tidigt för att kunna bestämma vad kan vi g
 och hur kan vi implementera detta. Jag skapade en grupp-chat på Discord och la till alla gruppmedlemmar för bättre kommunikation i mellan oss.
 Vi kunde prata redan på tisdag (24/11) för att diskutera och planera hur projektet ska utvecklas, men tyvärr kunde inte alla delta.
 Vi skapade issues där vi kort beskrev de krav som ställs på detta projektarbete samt assignade vi de till varje gruppmedlem.
- Därefter skapade vi en [Kanaban projekt](https://github.com/Nettan86/Datalagring-Projektarbete/projects/1) för att tydlig se vart befinner vi oss i processen
+ Därefter skapade vi en [Kanban projekt](https://github.com/Nettan86/Datalagring-Projektarbete/projects/1) för att tydlig se vart befinner vi oss i processen
 och hur mycket kvar har vi att göra. Vi bestämde att vi först implementerar de issues som står som krav för att kunna få godkänd för detta arbete,
 men vi har varit överens om att det kan göras extra features om det finns en tid över för detta.
 
