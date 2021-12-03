@@ -76,7 +76,6 @@ namespace DataLayer
                 };
 
                 var foodPackageToAdd = ctx.FoodPackages.Add(newFoodPackage);
-                //ctx.Update(restaurant);
                 ctx.SaveChanges();
 
                 return newFoodPackage;
