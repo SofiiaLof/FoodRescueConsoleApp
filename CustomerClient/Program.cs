@@ -16,6 +16,19 @@ namespace CustomerClient
             {
                 Console.Clear();
 
+
+                Console.WriteLine("-------------------------------\n" +
+                                  "\n*** Welcome to Food Rescue ***\n" +
+                                  "\n-------------------------------");
+                /* username:  password: 
+                   anna23     password1
+                   bertil12   password2
+                   lisa67     password3
+                   diana76    password4
+                   anders34   password5
+                   kamila3    password6
+                   oliver 12  password7*/
+
                 var loginManager = new LoginManager();
                 User user = null;
 

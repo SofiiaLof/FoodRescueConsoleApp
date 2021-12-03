@@ -11,7 +11,12 @@ while (true)
     Console.Clear();
 
 
-    Console.WriteLine("\n               Welcome! What would you do today?");
+    Console.WriteLine("-------------------------------\n" +
+                      "\n*** Welcome to Food Rescue ***\n" +
+                      "\n-------------------------------");
+
+
+    Console.WriteLine("\n                   What would you do today?");
     Console.WriteLine("\n                     1. Reset database");
     Console.WriteLine("                     2. See user list");
     Console.WriteLine("                     3. See restaurant list");
