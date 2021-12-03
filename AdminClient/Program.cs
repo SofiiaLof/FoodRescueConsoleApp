@@ -26,9 +26,10 @@ while (true)
         Console.WriteLine("The database has been restored" +
                           "\n\n Press enter to return to menu");
 
+        Console.ReadLine();
     }
 
-
+  
 
 
     if (options == "2")
@@ -48,7 +49,7 @@ while (true)
                               customer.UserPrivateInfo.LastName);
 
         }
-
+        Console.ReadLine();
         Console.WriteLine("\n\nPress enter to return to menu");
     }
 
@@ -70,7 +71,7 @@ while (true)
             Console.WriteLine(" " + restaurant.RestaurantName
                                   + " " + restaurant.RestaurantAddress + "" + restaurant.PhoneNumber);
         }
-
+        Console.ReadLine();
         Console.WriteLine("\n\nPress enter to return to menu");
     }
 

@@ -10,7 +10,6 @@
   <ItemGroup>
     <ProjectReference Include="..\AdminClient\AdminClient.csproj" />
     <ProjectReference Include="..\CustomerClient\CustomerClient.csproj" />
-    <ProjectReference Include="..\Datalagring-projektarbete\Datalagring-projektarbete.csproj" />
     <ProjectReference Include="..\DataLayer\DataLayer.csproj" />
     <ProjectReference Include="..\Tester\Tester.csproj" />
   </ItemGroup>
