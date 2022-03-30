@@ -78,7 +78,7 @@ namespace CustomerClient
                     Console.WriteLine("Would you like to buy one? (Yes/No)");
                     var option = Console.ReadLine();
 
-                    if (option == "yes")
+                    if (option == "Yes")
                     {
                         BuyFoodPackage(user);
                     }
